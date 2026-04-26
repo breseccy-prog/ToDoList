@@ -1,0 +1,9 @@
+<resources>
+    <color name="primary">#4A90E2</color>
+    <color name="primaryDark">#357ABD</color>
+    <color name="accent">#50E3C2</color>
+    <color name="background">#F5F7FA</color>
+    <color name="card">#FFFFFF</color>
+    <color name="textPrimary">#333333</color>
+    <color name="textSecondary">#777777</color>
+</resources>

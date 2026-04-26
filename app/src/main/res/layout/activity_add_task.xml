@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tambah Tugas Baru"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="18dp" />
+
+        <EditText
+            android:id="@+id/etJudulTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Judul tugas"
+            android:layout_marginBottom="12dp"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etMapel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mata pelajaran"
+            android:layout_marginBottom="12dp"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etDeadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Deadline"
+            android:layout_marginBottom="12dp"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etDeskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Deskripsi tugas"
+            android:gravity="top"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
+        <Button
+            android:id="@+id/btnSimpanTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simpan Tugas"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/primary"
+            android:layout_marginBottom="10dp" />
+
+        <Button
+            android:id="@+id/btnBatal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Batal" />
+
+    </LinearLayout>
+
+</ScrollView>
