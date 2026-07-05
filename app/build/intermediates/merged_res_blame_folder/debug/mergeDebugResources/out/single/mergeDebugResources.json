@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "com.example.todolist.app-debug-26:/layout_activity_main.xml.flat",
+        "source": "com.example.todolist.app-main-28:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.todolist.app-debug-26:/drawable_bg_primary.xml.flat",
+        "source": "com.example.todolist.app-main-28:/drawable/bg_primary.xml"
+    },
+    {
+        "merged": "com.example.todolist.app-debug-26:/drawable_bg_input.xml.flat",
+        "source": "com.example.todolist.app-main-28:/drawable/bg_input.xml"
+    },
+    {
+        "merged": "com.example.todolist.app-debug-26:/layout_item_task.xml.flat",
+        "source": "com.example.todolist.app-main-28:/layout/item_task.xml"
+    },
+    {
+        "merged": "com.example.todolist.app-debug-26:/drawable_bg_danger.xml.flat",
+        "source": "com.example.todolist.app-main-28:/drawable/bg_danger.xml"
+    },
+    {
+        "merged": "com.example.todolist.app-debug-26:/drawable_ic_launcher.xml.flat",
+        "source": "com.example.todolist.app-main-28:/drawable/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.todolist.app-debug-26:/layout_activity_detail_task.xml.flat",
+        "source": "com.example.todolist.app-main-28:/layout/activity_detail_task.xml"
+    },
+    {
+        "merged": "com.example.todolist.app-debug-26:/layout_activity_add_edit_task.xml.flat",
+        "source": "com.example.todolist.app-main-28:/layout/activity_add_edit_task.xml"
+    },
+    {
+        "merged": "com.example.todolist.app-debug-26:/layout_activity_focus_timer.xml.flat",
+        "source": "com.example.todolist.app-main-28:/layout/activity_focus_timer.xml"
+    }
+]

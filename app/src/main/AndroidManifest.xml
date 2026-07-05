@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.todolist">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
-        android:label="To-Do Fokus"
+        android:icon="@drawable/ic_launcher"
+        android:label="TaskMate"
+        android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.TaskMate">
 
-        <activity android:name=".FocusActivity" />
+        <activity android:name=".FocusTimerActivity" />
         <activity android:name=".DetailTaskActivity" />
-        <activity android:name=".AddTaskActivity" />
+        <activity android:name=".AddEditTaskActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -21,5 +22,4 @@
         </activity>
 
     </application>
-
 </manifest>

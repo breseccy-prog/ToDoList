@@ -1,53 +1,96 @@
 package com.example.todolist
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.todolist.data.Task
+import com.example.todolist.data.TaskDatabaseHelper
 
 class DetailTaskActivity : AppCompatActivity() {
 
-    private lateinit var tvDetailTitle: TextView
-    private lateinit var tvDetailSubject: TextView
-    private lateinit var tvDetailDeadline: TextView
-    private lateinit var tvDetailDescription: TextView
-    private lateinit var btnHapusTask: Button
-    private lateinit var btnKembaliDetail: Button
+    private lateinit var dbHelper: TaskDatabaseHelper
+    private var taskId: Long = -1
+    private var currentTask: Task? = null
+
+    private lateinit var tvTitle: TextView
+    private lateinit var tvDescription: TextView
+    private lateinit var tvCategory: TextView
+    private lateinit var tvPriority: TextView
+    private lateinit var tvDeadline: TextView
+    private lateinit var tvStatus: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_task)
 
-        tvDetailTitle = findViewById(R.id.tvDetailTitle)
-        tvDetailSubject = findViewById(R.id.tvDetailSubject)
-        tvDetailDeadline = findViewById(R.id.tvDetailDeadline)
-        tvDetailDescription = findViewById(R.id.tvDetailDescription)
-        btnHapusTask = findViewById(R.id.btnHapusTask)
-        btnKembaliDetail = findViewById(R.id.btnKembaliDetail)
+        dbHelper = TaskDatabaseHelper(this)
+        taskId = intent.getLongExtra(EXTRA_TASK_ID, -1)
 
-        val taskId = intent.getIntExtra("task_id", -1)
-        val task = TaskRepository.getTaskById(taskId)
+        setupView()
+        loadTask()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        loadTask()
+    }
+
+    private fun setupView() {
+        tvTitle = findViewById(R.id.tvTitle)
+        tvDescription = findViewById(R.id.tvDescription)
+        tvCategory = findViewById(R.id.tvCategory)
+        tvPriority = findViewById(R.id.tvPriority)
+        tvDeadline = findViewById(R.id.tvDeadline)
+        tvStatus = findViewById(R.id.tvStatus)
+
+        findViewById<Button>(R.id.btnEdit).setOnClickListener {
+            val intent = Intent(this, AddEditTaskActivity::class.java)
+            intent.putExtra(AddEditTaskActivity.EXTRA_TASK_ID, taskId)
+            startActivity(intent)
+        }
+
+        findViewById<Button>(R.id.btnDelete).setOnClickListener {
+            showDeleteDialog()
+        }
+
+        findViewById<Button>(R.id.btnBack).setOnClickListener { finish() }
+    }
+
+    private fun loadTask() {
+        currentTask = dbHelper.getTaskById(taskId)
+        val task = currentTask
         if (task == null) {
-            Toast.makeText(this, "Tugas tidak ditemukan", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Data tugas tidak ditemukan", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
 
-        tvDetailTitle.text = task.title
-        tvDetailSubject.text = "Mata Pelajaran: ${task.subject}"
-        tvDetailDeadline.text = "Deadline: ${task.deadline}"
-        tvDetailDescription.text = task.description
+        tvTitle.text = task.title
+        tvDescription.text = task.description.ifBlank { "Tidak ada deskripsi" }
+        tvCategory.text = "Kategori: ${task.category}"
+        tvPriority.text = "Prioritas: ${task.priority}"
+        tvDeadline.text = "Deadline: ${task.deadline}"
+        tvStatus.text = "Status: ${if (task.isDone) "Selesai" else "Belum selesai"}"
+    }
 
-        btnHapusTask.setOnClickListener {
-            TaskRepository.deleteTask(taskId)
-            Toast.makeText(this, "Tugas berhasil dihapus", Toast.LENGTH_SHORT).show()
-            finish()
-        }
+    private fun showDeleteDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Hapus Tugas")
+            .setMessage("Apakah kamu yakin ingin menghapus tugas ini?")
+            .setPositiveButton("Hapus") { _, _ ->
+                dbHelper.deleteTask(taskId)
+                Toast.makeText(this, "Tugas berhasil dihapus", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+            .setNegativeButton("Batal", null)
+            .show()
+    }
 
-        btnKembaliDetail.setOnClickListener {
-            finish()
-        }
+    companion object {
+        const val EXTRA_TASK_ID = "extra_task_id"
     }
 }
