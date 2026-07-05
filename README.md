@@ -1,27 +1,55 @@
-# To-Do List + Fokus Belajar (Android Kotlin)
+# TaskMate - Aplikasi Manajemen Tugas Harian
 
-## 📱 Deskripsi
-Aplikasi untuk mencatat tugas dan membantu fokus belajar menggunakan timer.
+TaskMate adalah aplikasi Android sederhana untuk membantu pengguna mencatat dan mengelola tugas harian. Aplikasi ini dikembangkan dari project ToDoList sebelumnya menjadi aplikasi manajemen tugas yang memiliki fitur CRUD, kategori tugas, prioritas, deadline, status tugas, dan timer fokus.
 
-## ✨ Fitur
-- Tambah tugas
-- Lihat daftar tugas
-- Detail tugas
-- Timer fokus belajar (countdown)
-- Validasi input
-- Animasi sederhana
+## Deskripsi Aplikasi
 
-## 🧱 Teknologi
-- Kotlin
-- Android Studio
-- RecyclerView
-- CardView
+Aplikasi ini dibuat sebagai proyek pengembangan aplikasi Android menggunakan Kotlin sebagai bahasa pemrograman dan XML sebagai desain antarmuka. TaskMate dapat digunakan untuk mencatat tugas, melihat daftar tugas, mengubah data tugas, menghapus tugas, serta menandai tugas yang sudah selesai.
 
-## 📸 Screenshot
-<img width="351" height="395" alt="1 Halaman Utama" src="https://github.com/user-attachments/assets/c2bdd084-3620-449c-a5df-d5e9dd541de9" />
-<img width="357" height="449" alt="2 Halaman Tambah Tugas" src="https://github.com/user-attachments/assets/44795e58-d268-4206-a96b-6651861c3455" />
-<img width="357" height="561" alt="5 Halaman Fokus Belajar" src="https://github.com/user-attachments/assets/42e4c50f-5919-4e82-b408-bba349305958" />
+## Fitur Aplikasi
 
+- Menambahkan tugas baru
+- Menampilkan daftar tugas
+- Melihat detail tugas
+- Mengedit data tugas
+- Menghapus tugas
+- Menandai tugas selesai atau belum selesai
+- Memberikan kategori tugas
+- Menentukan prioritas tugas
+- Menambahkan deadline tugas
+- Mencari tugas berdasarkan judul, kategori, atau deskripsi
+- Filter tugas berdasarkan status
+- Timer fokus untuk membantu pengguna belajar atau bekerja
 
-## 👨‍💻 Author
-Fauzi
+## Teknologi yang Digunakan
+
+- Bahasa Pemrograman: Kotlin
+- Desain Antarmuka: XML
+- Database Lokal: SQLite
+- IDE: Android Studio
+- Komponen Android:
+  - Activity
+  - RecyclerView
+  - CardView
+  - SQLiteOpenHelper
+  - Intent
+  - Shared UI Layout XML
+
+## Struktur Project
+
+```text
+app/
+ └── src/
+     └── main/
+         ├── AndroidManifest.xml
+         ├── java/com/example/todolist/
+         │   ├── MainActivity.kt
+         │   ├── AddEditTaskActivity.kt
+         │   ├── DetailTaskActivity.kt
+         │   ├── FocusTimerActivity.kt
+         │   ├── data/
+         │   └── adapter/
+         └── res/
+             ├── layout/
+             ├── drawable/
+             └── values/
